@@ -50,6 +50,7 @@ public struct HLSResolution: Equatable, Comparable, FailableStringLiteralConvert
     public var ratio: Float { return Float(w)/Float(h) }
     public var is16x9: Bool { return abs(ratio - HLSResolution.ratio16x9) < 0.01 }
     public var is4x3: Bool { return abs(ratio - HLSResolution.ratio4x3) < 0.01 }
+    static let zero = HLSResolution(width: 0, height: 0)
 }
 
 public func ==(lhs: HLSResolution, rhs: HLSResolution) -> Bool {

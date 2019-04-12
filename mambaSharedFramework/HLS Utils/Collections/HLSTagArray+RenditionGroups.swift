@@ -105,16 +105,16 @@ public extension Collection where Iterator.Element == HLSTag {
         
         return self.sorted { (a, b) -> Bool in
         
-            if let aResolution: HLSResolution = a.resolution(),
-                let bResolution: HLSResolution = b.resolution() {
-                if aResolution < bResolution { return true }
-                if bResolution > aResolution { return false }
-            }
+            let aResolution: HLSResolution = a.resolution() ?? HLSResolution.zero
+            let bResolution: HLSResolution = b.resolution() ?? HLSResolution.zero
+    
+            if aResolution < bResolution { return true }
+            if bResolution > aResolution { return false }
             
-            if let aBandwidth: Double = a.bandwidth(),
-                let bBandwidth: Double = b.bandwidth() {
-                if aBandwidth * tolerance < bBandwidth { return true }
-            }
+            let aBandwidth: Double = a.bandwidth() ?? 0.0
+            let bBandwidth: Double = b.bandwidth() ?? 0.0
+            
+            if aBandwidth * tolerance < bBandwidth { return true }
 
             return false
         }
