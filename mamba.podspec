@@ -23,7 +23,7 @@ s.ios.deployment_target     = '9.0'
 s.tvos.deployment_target    = '10.0'
 s.osx.deployment_target     = '10.13'
 
-s.source            = { :git => "https://github.com/Comcast/mamba.git", :tag => "#{s.version}" }
+s.source            = { :git => "https://github.com/jgainfort/mamba.git", :tag => "master_1.x_cocoapods" }
 s.source_files      = 'mambaSharedFramework/**/*.{h,m,swift,c}'
 s.preserve_paths    = 'mambaSharedFramework/**/*.include'
 s.frameworks        = 'CoreMedia'
